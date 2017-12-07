@@ -1,5 +1,4 @@
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('books')
     .del()
     .then(function() {
@@ -104,7 +103,7 @@ exports.seed = function(knex, Promise) {
     })
     .then(function() {
       return knex.raw(
-        `SELECT setval('books_id_seq', (SELECT MAX(id) FROM books));`
+        "SELECT setval('books_id_seq', (SELECT MAX(id) FROM books));"
       )
     })
 }
